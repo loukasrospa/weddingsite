@@ -1,7 +1,110 @@
 <!DOCTYPE html>
-<html lang='el'>
-<head><meta charset='UTF-8'><title>Γιόλαντα & Λουκάς</title></head>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Εκδήλωση</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #fafafa;
+      color: #333;
+    }
+    header, section, footer {
+      margin-bottom: 30px;
+    }
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #333;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    .rsvp-input {
+      display: block;
+      margin: 8px 0;
+      padding: 6px;
+      width: 250px;
+    }
+    button {
+      padding: 8px 14px;
+      background: #222;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #444;
+    }
+    select {
+      padding: 5px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
 <body>
-<h1>Καλωσήρθατε στον γάμο μας!</h1>
+
+  <header>
+    <h1>Η Εκδήλωσή μας</h1>
+    <nav>
+      <a href="#programma">Πρόγραμμα</a>
+      <a href="#topothesies">Τοποθεσίες</a>
+      <a href="#rsvp">RSVP</a>
+      <label for="lang">Γλώσσα:</label>
+      <select id="lang" onchange="changeLang(this.value)">
+        <option value="el" selected>Ελληνικά</option>
+        <option value="en">English</option>
+      </select>
+    </nav>
+  </header>
+
+  <section id="programma">
+    <h2>Πρόγραμμα</h2>
+    <ul>
+      <li>18:00 - Υποδοχή</li>
+      <li>19:00 - Ομιλίες</li>
+      <li>20:00 - Δείπνο & Μουσική</li>
+    </ul>
+  </section>
+
+  <section id="topothesies">
+    <h2>Τοποθεσίες</h2>
+    <p>Η εκδήλωση θα πραγματοποιηθεί στο <strong>Πολυχώρο Πολιτισμού</strong>, Αθηνάς 12, Αθήνα.</p>
+  </section>
+
+  <section id="rsvp">
+    <h2>RSVP</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" id="name" class="rsvp-input" placeholder="Το όνομά σας" required>
+      <input type="email" id="email" class="rsvp-input" placeholder="Το email σας" required>
+      <button type="submit">Αποστολή</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Η Εκδήλωσή μας</p>
+  </footer>
+
+  <script>
+    function changeLang(lang) {
+      if(lang === 'en') {
+        window.location.href = 'index_en.html';
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      alert('Ευχαριστούμε για την απάντησή σας!');
+    }
+  </script>
+
 </body>
 </html>
